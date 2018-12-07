@@ -1,10 +1,9 @@
 from setuptools import setup
 
-
 setup(
 	name="bigdown",
 	version="1.0",
-	py_modules=["countdown"],
+	py_modules=["app.countdown"],
 	install_requires=[
 		"DateTime",
 		"Click",
@@ -13,6 +12,6 @@ setup(
         ],
 	entry_points='''
 		[console_scripts]
-		bigdown=countdown:cli
+		bigdown=app.countdown:cli
 	'''
 )
