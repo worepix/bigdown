@@ -9,14 +9,14 @@ client = mqtt.Client("client-001")
 
 
 @click.command()
-@click.option("--run", is_flag=True, help="Run it!")
+@click.option("--newyear", is_flag=True, help="Run it!")
 
-def cli(run):
-    if run:
+def cli(newyear):
+    if newyear:
         client.connect("localhost")
-        getnumber()
+        newyear()
 
-def getnumber():
+def newyear():
         nowminute = 0
 
         while True:
