@@ -17,7 +17,37 @@ def cli(run):
         getnumber()
 
 def getnumber():
-        countdown()
+        nowminute = 0
+
+        while True:
+                while str(time.localtime()).split(",")[5].split("=")[1] != nowminute:
+                        now = int(time.time())
+                        newyear = 1546297200
+                        nowminute = str(time.localtime()).split(",")[5].split("=")[1]
+                        howmanydays = (newyear-now)/3600/24
+                        howmanyhours = (newyear-now)/3600
+                        howmanyminutes = (newyear-now)/60
+                        howmanyseconds = (newyear-now)
+
+                        if howmanyseconds > 0:
+
+                                if howmanyminutes <= 1:
+                                        print(howmanyseconds)
+
+                                elif howmanyhours <= 1:
+                                        print(howmanyminutes)
+
+                                elif howmanydays <= 1:
+                                        print(howmanyhours)
+
+                                else:
+                                        print(howmanydays)
+
+                        else:
+                                print("happynewyear")
+                        
+                time.sleep(1)
+
 
 def countdown():
         number = 9
