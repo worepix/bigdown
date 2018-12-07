@@ -75,4 +75,9 @@ def countme():
                         send(number)
 
 def send(number):
-        client.publish("bigsegment/0/set", number)
+        digits = [int(x) for x in str(number)]
+        i = 0
+
+        while i != len(digits):
+                client.publish("bigsegment/%i/set" % (i), "'%s'" % (digits[i]))
+                i+=1
