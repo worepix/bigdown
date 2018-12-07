@@ -37,18 +37,23 @@ def newyear():
                         if howmanyseconds > 0:
 
                                 if howmanyminutes <= 1:
+                                        send(howmanyseconds)
                                         print(howmanyseconds)
 
                                 elif howmanyhours <= 1:
+                                        send(howmanyminutes)
                                         print(howmanyminutes)
 
                                 elif howmanydays <= 1:
+                                        send(howmanyhours)
                                         print(howmanyhours)
 
                                 else:
+                                        send(howmanydays)
                                         print(howmanydays)
 
                         else:
+                                send("happynewyear")
                                 print("happynewyear")
                         
                 time.sleep(1)
