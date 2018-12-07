@@ -12,34 +12,16 @@ client = mqtt.Client("client-001")
 @click.option("--newyear", is_flag=True, help="Count down to new year")
 @click.option("--countdown", is_flag=True, help="Count down from 9 to 0")
 
-def countdown():
-        number = 9
-        while True:
-                while number <= 9 and number != 0:
-                        print(number)
-                        number-=1
-                        time.sleep(1)
-                        send(number)
-
-                while number == 0:
-                        print(number)
-                        number += 9
-                        time.sleep(1)
-                        send(number)
-
-def send(number):
-        client.publish("bigsegment/0/set", number)
-
 def cli(newyear, countdown):
     
     if countdown:
-        countdown()
+        countme()
 
     elif newyear:
         client.connect("localhost")
-        newyear()
+        countnewyear()
 
-def newyear():
+def countnewyear():
         nowminute = 0
 
         while True:
@@ -75,3 +57,21 @@ def newyear():
                                 print("happynewyear")
                         
                 time.sleep(1)
+
+def countme():
+        number = 9
+        while True:
+                while number <= 9 and number != 0:
+                        print(number)
+                        number-=1
+                        time.sleep(1)
+                        send(number)
+
+                while number == 0:
+                        print(number)
+                        number += 9
+                        time.sleep(1)
+                        send(number)
+
+def send(number):
+        client.publish("bigsegment/0/set", number)
