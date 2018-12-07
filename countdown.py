@@ -12,9 +12,9 @@ client = mqtt.Client("client-001")
 @click.option("--newyear", is_flag=True, help="Count down to new year")
 @click.option("--countdown", is_flag=True, help="Count down from 9 to 0")
 
-def cli(newyear, count):
+def cli(newyear, countdown):
     
-    if count:
+    if countdown:
         countdown()
 
     elif newyear:
