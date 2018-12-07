@@ -15,6 +15,7 @@ client = mqtt.Client("client-001")
 def cli(newyear, countdown):
     
     if countdown:
+        client.connect("localhost")
         countme()
 
     elif newyear:
@@ -37,20 +38,20 @@ def countnewyear():
                         if howmanyseconds > 0:
 
                                 if howmanyminutes <= 1:
-                                        send(howmanyseconds)
-                                        print(howmanyseconds)
+                                        send(int(howmanyseconds))
+                                        print(int(howmanyseconds))
 
                                 elif howmanyhours <= 1:
-                                        send(howmanyminutes)
-                                        print(howmanyminutes)
+                                        send(int(howmanyminutes))
+                                        print(int(howmanyminutes))
 
                                 elif howmanydays <= 1:
-                                        send(howmanyhours)
-                                        print(howmanyhours)
+                                        send(int(howmanyhours))
+                                        print(int(howmanyhours))
 
                                 else:
-                                        send(howmanydays)
-                                        print(howmanydays)
+                                        send(int(howmanydays))
+                                        print(int(howmanydays))
 
                         else:
                                 send("happynewyear")
